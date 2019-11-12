@@ -5,7 +5,7 @@ ENV JMETER_VERSION 5.2
 ENV RMI_PORT 1099
 
 RUN apt-get -qq update && \
-    apt-get -yqq install openjdk-7-jre-headless unzip curl wget&& \
+    apt-get -yqq install openjdk-8-jdk-headless unzip curl wget&& \
     apt-get -q clean && \
     rm -rf /var/lib/apt/lists/*
 
