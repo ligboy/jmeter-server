@@ -4,6 +4,7 @@ MAINTAINER ligboy <ligboy@gmail.com>
 ENV JMETER_VERSION 5.2
 ENV RMI_PORT 1099
 ENV IP 0.0.0.0
+ENV JMETER_HOME /opt/jmeter
 
 RUN apt-get -qq update && \
     apt-get -yqq install openjdk-8-jdk-headless unzip curl wget&& \
@@ -11,7 +12,9 @@ RUN apt-get -qq update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN cd /tmp && wget http://ftp.cuhk.edu.hk/pub/packages/apache.org/jmeter/binaries/apache-jmeter-$JMETER_VERSION.zip \
-     && unzip apache-jmeter-$JMETER_VERSION.zip && mv apache-jmeter-$JMETER_VERSION /opt/jmeter && rm /tmp/apache-jmeter-$JMETER_VERSION.zip
+     && unzip apache-jmeter-$JMETER_VERSION.zip && mv apache-jmeter-$JMETER_VERSION $JMETER_HOME && rm /tmp/apache-jmeter-$JMETER_VERSION.zip
+
+RUN cd $JMETER_HOME && wget https://jmeter-plugins.org/files/packages/jpgc-casutg-2.9.zip -O jpgc-temp.zip && unzip jpgc-temp.zip && rm jpgc-temp.zip
 
 RUN echo server.rmi.ssl.disable=true >> /opt/jmeter/bin/jmeter.properties
 
