@@ -3,6 +3,7 @@ MAINTAINER ligboy <ligboy@gmail.com>
 
 ENV JMETER_VERSION 5.2
 ENV RMI_PORT 1099
+ENV IP 0.0.0.0
 
 RUN apt-get -qq update && \
     apt-get -yqq install openjdk-8-jdk-headless unzip curl wget&& \
