@@ -12,6 +12,8 @@ RUN apt-get -qq update && \
 RUN cd /tmp && wget http://ftp.cuhk.edu.hk/pub/packages/apache.org/jmeter/binaries/apache-jmeter-$JMETER_VERSION.zip \
      && unzip apache-jmeter-$JMETER_VERSION.zip && mv apache-jmeter-$JMETER_VERSION /opt/jmeter && rm /tmp/apache-jmeter-$JMETER_VERSION.zip
 
+RUN echo server.rmi.ssl.disable=true >> /opt/jmeter/bin/jmeter.properties
+
 ENV PATH /opt/jmeter/bin:$PATH
 
 EXPOSE $RMI_PORT
