@@ -15,6 +15,8 @@ RUN cd /tmp && wget http://ftp.cuhk.edu.hk/pub/packages/apache.org/jmeter/binari
      && unzip apache-jmeter-$JMETER_VERSION.zip && mv apache-jmeter-$JMETER_VERSION $JMETER_HOME && rm /tmp/apache-jmeter-$JMETER_VERSION.zip
 
 RUN cd $JMETER_HOME && wget https://jmeter-plugins.org/files/packages/jpgc-casutg-2.9.zip -O jpgc-temp.zip && unzip jpgc-temp.zip && rm jpgc-temp.zip
+RUN cd $JMETER_HOME && wget https://jmeter-plugins.org/files/packages/jpgc-graphs-basic-2.0.zip -O jpgc-graphs-basic-temp.zip && unzip jpgc-graphs-basic-temp.zip && rm jpgc-temp.zip
+RUN cd $JMETER_HOME && wget https://jmeter-plugins.org/files/packages/jpgc-perfmon-2.1.zip -O jpgc-perfmon-temp.zip && unzip jpgc-perfmon-temp.zip && rm jpgc-temp.zip
 
 RUN echo server.rmi.ssl.disable=true >> /opt/jmeter/bin/jmeter.properties
 
